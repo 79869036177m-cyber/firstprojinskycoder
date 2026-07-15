@@ -13,7 +13,7 @@ const packages = [
       "Быстрый старт онлайн-присутствия: лендинг с формой обратной связи для сбора заявок и общения с клиентами.",
     preview: {
       icon: Globe,
-      gradient: "from-emerald-400/20 to-teal-600/20",
+      gradient: "from-emerald-400/30 to-teal-500/30",
     },
     solutions: ["Лендинг", "Форма заявок", "Обратная связь"],
   },
@@ -24,7 +24,7 @@ const packages = [
       "Автоматизация коммуникаций: чат-бот для общения, сайт и база данных для хранения клиентской информации.",
     preview: {
       icon: Bot,
-      gradient: "from-green-400/20 to-emerald-600/20",
+      gradient: "from-green-400/30 to-emerald-500/30",
     },
     solutions: ["Чат-бот", "Сайт", "База данных"],
   },
@@ -35,7 +35,7 @@ const packages = [
       "Полная цифровизация бизнеса: боты, сайт, база данных и бизнес-метрики. В подарок — ИИ-ассистент.",
     preview: {
       icon: Sparkles,
-      gradient: "from-lime-400/20 to-green-600/20",
+      gradient: "from-lime-400/30 to-green-500/30",
     },
     solutions: ["Боты", "Сайт", "База данных", "Бизнес-метрики"],
     gift: "1 ИИ ассистент",
