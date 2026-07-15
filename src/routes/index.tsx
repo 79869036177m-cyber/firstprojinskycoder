@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Bot, Gift, Globe, Sparkles } from "lucide-react";
+import { Gift } from "lucide-react";
+import starterAsset from "../assets/package-starter.png.asset.json";
+import advancedAsset from "../assets/package-advanced.png.asset.json";
+import maximumAsset from "../assets/package-maximum.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -11,10 +14,7 @@ const packages = [
     title: "Сайт приёма заявок",
     description:
       "Быстрый старт онлайн-присутствия: лендинг с формой обратной связи для сбора заявок и общения с клиентами.",
-    preview: {
-      icon: Globe,
-      gradient: "from-emerald-400/30 to-teal-500/30",
-    },
+    image: starterAsset.url,
     solutions: ["Лендинг", "Форма заявок", "Обратная связь"],
   },
   {
@@ -22,10 +22,7 @@ const packages = [
     title: "Бот + сайт + база данных",
     description:
       "Автоматизация коммуникаций: чат-бот для общения, сайт и база данных для хранения клиентской информации.",
-    preview: {
-      icon: Bot,
-      gradient: "from-green-400/30 to-emerald-500/30",
-    },
+    image: advancedAsset.url,
     solutions: ["Чат-бот", "Сайт", "База данных"],
   },
   {
@@ -33,10 +30,7 @@ const packages = [
     title: "Решение под ключ",
     description:
       "Полная цифровизация бизнеса: боты, сайт, база данных и бизнес-метрики. В подарок — ИИ-ассистент.",
-    preview: {
-      icon: Sparkles,
-      gradient: "from-lime-400/30 to-green-500/30",
-    },
+    image: maximumAsset.url,
     solutions: ["Боты", "Сайт", "База данных", "Бизнес-метрики"],
     gift: "1 ИИ ассистент",
   },
@@ -46,26 +40,25 @@ interface Package {
   badge: string;
   title: string;
   description: string;
-  preview: {
-    icon: React.ComponentType<{ className?: string }>;
-    gradient: string;
-  };
+  image: string;
   solutions: string[];
   gift?: string;
 }
 
 function PackageCard({ pkg }: { pkg: Package }) {
-  const PreviewIcon = pkg.preview.icon;
-
   return (
     <div className="group relative rounded-2xl bg-gradient-to-br from-primary/50 via-primary/20 to-primary/40 p-[1px] transition-all duration-300 hover:-translate-y-1 hover:from-primary/70 hover:via-primary/30 hover:to-primary/50 hover:shadow-2xl hover:shadow-primary/20">
       <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card/95 p-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
-        <div
-          className={`relative mb-5 flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br ${pkg.preview.gradient}`}
-        >
-          <div className="rounded-2xl bg-card/80 p-4 backdrop-blur-sm">
-            <PreviewIcon className="h-8 w-8 text-primary" />
-          </div>
+        <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-xl">
+          <img
+            src={pkg.image}
+            alt={pkg.title}
+            loading="lazy"
+            width={1024}
+            height={640}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
         </div>
 
         <div className="mb-3 inline-flex w-fit items-center rounded-full border border-border bg-secondary/50 px-3 py-1 text-xs font-medium text-secondary-foreground">
@@ -112,6 +105,14 @@ function Index() {
             Готовые пакеты от вайбкодера: от простого сайта до полной
             автоматизации с ИИ.
           </p>
+        </div>
+
+        <div className="mb-10 flex items-center justify-center gap-4">
+          <span className="h-px w-16 bg-primary/30" />
+          <h2 className="text-sm font-medium uppercase tracking-[0.15em] text-muted-foreground">
+            Пакетные предложения
+          </h2>
+          <span className="h-px w-16 bg-primary/30" />
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
