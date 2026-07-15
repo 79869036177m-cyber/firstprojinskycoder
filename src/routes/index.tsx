@@ -58,8 +58,8 @@ function PackageCard({ pkg }: { pkg: Package }) {
   const PreviewIcon = pkg.preview.icon;
 
   return (
-    <div className="group relative rounded-2xl bg-gradient-to-br from-primary/30 via-primary/10 to-transparent p-[1px] transition-all duration-300 hover:from-primary/50 hover:to-primary/20 hover:shadow-2xl hover:shadow-primary/10">
-      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card p-5">
+    <div className="group relative rounded-2xl bg-gradient-to-br from-primary/40 via-primary/10 to-transparent p-[1px] transition-all duration-300 hover:-translate-y-1 hover:from-primary/60 hover:via-primary/20 hover:to-primary/30 hover:shadow-2xl hover:shadow-primary/15">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-gradient-to-b from-card to-card/80 p-5">
         <div
           className={`relative mb-5 flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br ${pkg.preview.gradient}`}
         >
