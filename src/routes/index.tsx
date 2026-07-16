@@ -1,5 +1,6 @@
+import type { ComponentType } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Gift } from "lucide-react";
+import { Gift, Rocket, Bot, Database, Puzzle } from "lucide-react";
 import starterAsset from "../assets/package-starter.png.asset.json";
 import advancedAsset from "../assets/package-advanced.png.asset.json";
 import maximumAsset from "../assets/package-maximum.png.asset.json";
@@ -93,6 +94,67 @@ function PackageCard({ pkg }: { pkg: Package }) {
   );
 }
 
+const benefits = [
+  {
+    icon: Rocket,
+    title: "Рабочее первое решение за 2 дня",
+    description:
+      "Создаю для вас сайт, на котором клиент может познакомиться с вами, связаться или оставить заявку.",
+    tag: "Скорость × Качество",
+  },
+  {
+    icon: Bot,
+    title: "Роботы-помощники",
+    description:
+      "Включаю робота-помощника, который сам будет отвечать клиенту и снимать с вас необходимость реагировать на базовые вопросы. Перед тем как связаться с клиентом, вы сразу будете знать его потребность.",
+    tag: "Автоматизация × Внимание",
+  },
+  {
+    icon: Database,
+    title: "База данных",
+    description:
+      "Добавляю вам хранилище данных, в котором вы сможете следить за важными для вас бизнес-метриками и хранить данные клиентов.",
+    tag: "Данные × Контроль",
+  },
+  {
+    icon: Puzzle,
+    title: "Комплексное решение",
+    description:
+      "На этом этапе вы получаете сайт, телеграмм бота, хранилище данных, а также персонального ИИ-ассистента, который будет подсказывать, как улучшить ваши продажи или лояльность клиента путём анализа полученных данных.",
+    tag: "Полный цикл × ИИ",
+  },
+];
+
+interface Benefit {
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  tag: string;
+}
+
+function BenefitCard({ benefit }: { benefit: Benefit }) {
+  const Icon = benefit.icon;
+  return (
+    <div className="group relative rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80 hover:shadow-xl hover:shadow-primary/10">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 text-primary ring-1 ring-primary/20 transition-transform duration-300 group-hover:scale-110">
+        <Icon className="h-6 w-6" />
+      </div>
+
+      <h3 className="mb-2 text-lg font-semibold text-card-foreground">
+        {benefit.title}
+      </h3>
+
+      <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+        {benefit.description}
+      </p>
+
+      <div className="mt-auto inline-flex items-center rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary">
+        {benefit.tag}
+      </div>
+    </div>
+  );
+}
+
 function Index() {
   return (
     <div className="dark min-h-screen bg-background text-foreground">
@@ -118,6 +180,23 @@ function Index() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {packages.map((pkg) => (
             <PackageCard key={pkg.title} pkg={pkg} />
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-16 md:py-24">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.15em] text-primary">
+            Упрощаю вашу работу, даю понятный продукт
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Что вы получаете от работы со мной
+          </h2>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((benefit) => (
+            <BenefitCard key={benefit.title} benefit={benefit} />
           ))}
         </div>
       </section>
