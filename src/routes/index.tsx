@@ -1,6 +1,15 @@
 import type { ComponentType } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Gift, Rocket, Bot, Database, Puzzle } from "lucide-react";
+import {
+  Gift,
+  Rocket,
+  Bot,
+  Database,
+  Puzzle,
+  Zap,
+  Code2,
+  FlaskConical,
+} from "lucide-react";
 import starterAsset from "../assets/package-starter.png.asset.json";
 import advancedAsset from "../assets/package-advanced.png.asset.json";
 import maximumAsset from "../assets/package-maximum.png.asset.json";
