@@ -266,6 +266,46 @@ function Index() {
           ))}
         </div>
       </section>
+
+      <section className="container mx-auto px-4 py-16 md:py-24">
+        <div className="mb-12 flex items-center justify-center gap-3 md:mb-16">
+          <span className="h-2 w-2 rounded-full bg-primary" />
+          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Как мы идем к цели
+          </h2>
+        </div>
+
+        <div className="relative">
+          {/* Desktop horizontal timeline line */}
+          <div className="absolute top-[1.25rem] left-[12.5%] right-[12.5%] hidden h-0.5 bg-gradient-to-r from-primary via-chart-2 to-chart-5 md:block" />
+
+          <div className="grid gap-8 md:grid-cols-4">
+            {processSteps.map((step, index) => (
+              <div key={step.number} className="relative flex gap-4 md:block">
+                {/* Mobile vertical connector line */}
+                {index !== processSteps.length - 1 && (
+                  <div
+                    className={`absolute top-10 left-5 h-[calc(100%-2.5rem)] w-0.5 -translate-x-1/2 md:hidden ${
+                      index === 0
+                        ? "bg-gradient-to-b from-primary to-chart-2"
+                        : index === 1
+                          ? "bg-gradient-to-b from-chart-2 to-chart-4"
+                          : "bg-gradient-to-b from-chart-4 to-chart-5"
+                    }`}
+                  />
+                )}
+
+                {/* Number circle */}
+                <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-chart-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 md:mx-auto md:mb-6">
+                  {step.number}
+                </div>
+
+                <StepCard step={step} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
