@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Gift, Rocket, Bot, Database, Puzzle } from "lucide-react";
 import starterAsset from "../assets/package-starter.png.asset.json";
