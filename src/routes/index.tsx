@@ -126,7 +126,7 @@ const benefits = [
 ];
 
 interface Benefit {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string }>;
   title: string;
   description: string;
   tag: string;
