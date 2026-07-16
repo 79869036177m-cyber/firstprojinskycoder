@@ -164,6 +164,63 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
   );
 }
 
+const processSteps = [
+  {
+    number: "1",
+    icon: Zap,
+    title: "Собираю ваши желания и предпочтения",
+    description:
+      "Узнаю ваши потребности, цели и особенности бизнеса, чтобы предложить решение, которое вам действительно подходит.",
+  },
+  {
+    number: "2",
+    icon: Code2,
+    title: "Готовлю первое решение",
+    description:
+      "Создаю работающий продукт, презентую вам и отправляю тестировать на живых клиентах.",
+  },
+  {
+    number: "3",
+    icon: FlaskConical,
+    title: "Собираю обратную связь и корректирую",
+    description:
+      "Анализирую результат теста, вношу правки и добавляю в продукт ваши новые идеи.",
+  },
+  {
+    number: "4",
+    icon: Rocket,
+    title: "Отдаю полное промышленное решение",
+    description:
+      "Запускаю финальную версию и остаюсь на связи для поддержки и дальтерейшн развития.",
+  },
+];
+
+interface ProcessStep {
+  number: string;
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+function StepCard({ step }: { step: ProcessStep }) {
+  const Icon = step.icon;
+  return (
+    <div className="group relative rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80 hover:shadow-xl hover:shadow-primary/10">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 text-primary ring-1 ring-primary/20 transition-transform duration-300 group-hover:scale-110">
+        <Icon className="h-6 w-6" />
+      </div>
+
+      <h3 className="mb-2 text-lg font-semibold text-card-foreground">
+        {step.title}
+      </h3>
+
+      <p className="text-sm leading-relaxed text-muted-foreground">
+        {step.description}
+      </p>
+    </div>
+  );
+}
+
 function Index() {
   return (
     <div className="dark min-h-screen bg-background text-foreground">
