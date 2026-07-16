@@ -1,6 +1,15 @@
 import type { ComponentType } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Gift, Rocket, Bot, Database, Puzzle } from "lucide-react";
+import {
+  Gift,
+  Rocket,
+  Bot,
+  Database,
+  Puzzle,
+  Zap,
+  Code2,
+  FlaskConical,
+} from "lucide-react";
 import starterAsset from "../assets/package-starter.png.asset.json";
 import advancedAsset from "../assets/package-advanced.png.asset.json";
 import maximumAsset from "../assets/package-maximum.png.asset.json";
@@ -155,6 +164,63 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
   );
 }
 
+const processSteps = [
+  {
+    number: "1",
+    icon: Zap,
+    title: "Собираю ваши желания и предпочтения",
+    description:
+      "Узнаю ваши потребности, цели и особенности бизнеса, чтобы предложить решение, которое вам действительно подходит.",
+  },
+  {
+    number: "2",
+    icon: Code2,
+    title: "Готовлю первое решение",
+    description:
+      "Создаю работающий продукт, презентую вам и отправляю тестировать на живых клиентах.",
+  },
+  {
+    number: "3",
+    icon: FlaskConical,
+    title: "Собираю обратную связь и корректирую",
+    description:
+      "Анализирую результат теста, вношу правки и добавляю в продукт ваши новые идеи.",
+  },
+  {
+    number: "4",
+    icon: Rocket,
+    title: "Отдаю полное промышленное решение",
+    description:
+      "Запускаю финальную версию и остаюсь на связи для поддержки и дальнейшего развития.",
+  },
+];
+
+interface ProcessStep {
+  number: string;
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+function StepCard({ step }: { step: ProcessStep }) {
+  const Icon = step.icon;
+  return (
+    <div className="group relative rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80 hover:shadow-xl hover:shadow-primary/10">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 text-primary ring-1 ring-primary/20 transition-transform duration-300 group-hover:scale-110">
+        <Icon className="h-6 w-6" />
+      </div>
+
+      <h3 className="mb-2 text-lg font-semibold text-card-foreground">
+        {step.title}
+      </h3>
+
+      <p className="text-sm leading-relaxed text-muted-foreground">
+        {step.description}
+      </p>
+    </div>
+  );
+}
+
 function Index() {
   return (
     <div className="dark min-h-screen bg-background text-foreground">
@@ -198,6 +264,46 @@ function Index() {
           {benefits.map((benefit) => (
             <BenefitCard key={benefit.title} benefit={benefit} />
           ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-16 md:py-24">
+        <div className="mb-12 flex items-center justify-center gap-3 md:mb-16">
+          <span className="h-2 w-2 rounded-full bg-primary" />
+          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Как мы идем к цели
+          </h2>
+        </div>
+
+        <div className="relative">
+          {/* Desktop horizontal timeline line */}
+          <div className="absolute top-[1.25rem] left-[12.5%] right-[12.5%] hidden h-0.5 bg-gradient-to-r from-primary via-chart-2 to-chart-5 md:block" />
+
+          <div className="grid gap-8 md:grid-cols-4">
+            {processSteps.map((step, index) => (
+              <div key={step.number} className="relative flex gap-4 md:block">
+                {/* Mobile vertical connector line */}
+                {index !== processSteps.length - 1 && (
+                  <div
+                    className={`absolute top-10 left-5 h-[calc(100%-2.5rem)] w-0.5 -translate-x-1/2 md:hidden ${
+                      index === 0
+                        ? "bg-gradient-to-b from-primary to-chart-2"
+                        : index === 1
+                          ? "bg-gradient-to-b from-chart-2 to-chart-4"
+                          : "bg-gradient-to-b from-chart-4 to-chart-5"
+                    }`}
+                  />
+                )}
+
+                {/* Number circle */}
+                <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-chart-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 md:mx-auto md:mb-6">
+                  {step.number}
+                </div>
+
+                <StepCard step={step} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
