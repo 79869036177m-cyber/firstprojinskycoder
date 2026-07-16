@@ -186,12 +186,12 @@ function Index() {
 
       <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="mb-12 text-center md:mb-16">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.15em] text-primary">
-            Упрощаю вашу работу, даю понятный продукт
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Что вы получаете от работы со мной
           </h2>
+          <p className="text-sm font-medium uppercase tracking-[0.15em] text-primary">
+            Упрощаю вашу работу, даю понятный продукт
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
