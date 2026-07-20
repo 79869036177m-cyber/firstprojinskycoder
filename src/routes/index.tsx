@@ -364,8 +364,8 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="container mx-auto px-4 py-16 md:py-24">
-      <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/20 via-card/80 to-card/60 p-8 text-center md:p-16">
+    <section id="contact" className="mx-auto w-full max-w-6xl px-4 py-12 md:py-20">
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/20 via-card/80 to-card/60 p-8 text-center md:p-14">
         <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-chart-3/20 blur-3xl" />
 
