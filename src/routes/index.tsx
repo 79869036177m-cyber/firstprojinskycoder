@@ -240,9 +240,9 @@ function StepCard({ step }: { step: ProcessStep }) {
 
 function Index() {
   return (
-    <div className="dark min-h-screen bg-background text-foreground">
-      <section id="hero" className="container mx-auto px-4 py-16 md:py-24">
-        <div className="mb-12 text-center md:mb-16">
+    <div className="dark min-h-screen text-foreground">
+      <section id="hero" className="mx-auto w-full max-w-6xl px-4 py-12 md:py-20">
+        <div className="mb-10 text-center md:mb-14">
           <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-5xl">
             Решения для вашего бизнеса
           </h1>
@@ -265,7 +265,7 @@ function Index() {
           </div>
         </div>
 
-        <div className="mb-10 flex items-center justify-center gap-4">
+        <div className="mb-8 flex items-center justify-center gap-4 md:mb-10">
           <span className="h-px w-16 bg-primary/30" />
           <h2 className="text-sm font-medium uppercase tracking-[0.15em] text-muted-foreground">
             Пакетные предложения
@@ -280,8 +280,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="mb-12 text-center md:mb-16">
+      <section className="mx-auto w-full max-w-6xl px-4 py-12 md:py-20">
+        <div className="mb-10 text-center md:mb-14">
           <h2 className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Что вы получаете от работы со мной
           </h2>
@@ -297,8 +297,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="mb-12 flex items-center justify-center gap-3 md:mb-16">
+      <section className="mx-auto w-full max-w-6xl px-4 py-12 md:py-20">
+        <div className="mb-10 flex items-center justify-center gap-3 md:mb-14">
           <span className="h-2 w-2 rounded-full bg-primary" />
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Как мы идем к цели
