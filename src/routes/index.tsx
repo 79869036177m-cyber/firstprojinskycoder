@@ -241,15 +241,28 @@ function StepCard({ step }: { step: ProcessStep }) {
 function Index() {
   return (
     <div className="dark min-h-screen bg-background text-foreground">
-      <section className="container mx-auto px-4 py-16 md:py-24">
+      <section id="hero" className="container mx-auto px-4 py-16 md:py-24">
         <div className="mb-12 text-center md:mb-16">
           <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-5xl">
             Решения для вашего бизнеса
           </h1>
-          <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
+          <p className="mx-auto mb-8 max-w-2xl text-base text-muted-foreground md:text-lg">
             Готовые пакеты от вайбкодера: от простого сайта до полной
             автоматизации с ИИ.
           </p>
+
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button asChild size="lg" className="w-full gap-2 sm:w-auto">
+              <a href="#hero">
+                Проекты
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="w-full gap-2 sm:w-auto">
+              <a href="#contact">
+                Оставить заявку
+              </a>
+            </Button>
+          </div>
         </div>
 
         <div className="mb-10 flex items-center justify-center gap-4">
@@ -351,7 +364,7 @@ function ContactSection() {
   };
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <section id="contact" className="container mx-auto px-4 py-16 md:py-24">
       <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/20 via-card/80 to-card/60 p-8 text-center md:p-16">
         <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-chart-3/20 blur-3xl" />
