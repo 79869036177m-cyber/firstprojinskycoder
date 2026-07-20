@@ -146,3 +146,12 @@
     color: var(--color-foreground);
   }
 }
+
+.dark body {
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.22 0.06 150 / 0.9), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, oklch(0.16 0.05 150 / 0.8), transparent 70%),
+    linear-gradient(180deg, oklch(0.14 0.035 150) 0%, oklch(0.09 0.02 150) 50%, oklch(0.06 0.015 150) 100%);
+  background-attachment: fixed;
+}
