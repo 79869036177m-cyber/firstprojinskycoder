@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Gift,
@@ -9,7 +10,23 @@ import {
   Zap,
   Code2,
   FlaskConical,
+  Send,
+  MessageSquare,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 import starterAsset from "../assets/package-starter.png.asset.json";
 import advancedAsset from "../assets/package-advanced.png.asset.json";
 import maximumAsset from "../assets/package-maximum.png.asset.json";
@@ -306,6 +323,125 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <ContactSection />
     </div>
+  );
+}
+
+const TELEGRAM_URL = "https://t.me/username";
+
+function ContactSection() {
+  const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comment, setComment] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !phone.trim()) {
+      toast.error("Заполните имя и номер телефона");
+      return;
+    }
+    toast.success("Заявка отправлена! Свяжусь с вами в ближайшее время.");
+    setName("");
+    setPhone("");
+    setComment("");
+    setOpen(false);
+  };
+
+  return (
+    <section className="container mx-auto px-4 py-16 md:py-24">
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/20 via-card/80 to-card/60 p-8 text-center md:p-16">
+        <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-chart-3/20 blur-3xl" />
+
+        <div className="relative">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Свяжись со мной
+          </h2>
+          <p className="mx-auto mb-8 max-w-xl text-base text-muted-foreground md:text-lg">
+            Напишите в Telegram или оставьте заявку — обсудим ваш проект и
+            подберём подходящее решение.
+          </p>
+
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button asChild size="lg" className="w-full gap-2 sm:w-auto">
+              <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer">
+                <Send className="h-4 w-4" />
+                Написать в Telegram
+              </a>
+            </Button>
+
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full gap-2 sm:w-auto"
+                >
+                  <MessageSquare className="h-4 w-4" />
+                  Оставить заявку
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Оставить заявку</DialogTitle>
+                  <DialogDescription>
+                    Заполните форму — свяжусь с вами в ближайшее время.
+                  </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="space-y-2 text-left">
+                    <Label htmlFor="contact-name">Имя</Label>
+                    <Input
+                      id="contact-name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Ваше имя"
+                      maxLength={100}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2 text-left">
+                    <Label htmlFor="contact-phone">Номер телефона</Label>
+                    <Input
+                      id="contact-phone"
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="+7 (___) ___-__-__"
+                      maxLength={30}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2 text-left">
+                    <Label htmlFor="contact-comment">
+                      Комментарий{" "}
+                      <span className="text-muted-foreground">
+                        (не обязательно)
+                      </span>
+                    </Label>
+                    <Textarea
+                      id="contact-comment"
+                      value={comment}
+                      onChange={(e) => setComment(e.target.value)}
+                      placeholder="Расскажите о вашем проекте"
+                      maxLength={1000}
+                      rows={4}
+                    />
+                  </div>
+                  <DialogFooter>
+                    <Button type="submit" className="w-full sm:w-auto">
+                      Отправить заявку
+                    </Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
