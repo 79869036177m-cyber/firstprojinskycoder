@@ -79,13 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { name: "description", content: "VibeCoder Solutions offers tailored business solutions, including websites, bots, and databases." },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:description", content: "VibeCoder Solutions offers tailored business solutions, including websites, bots, and databases." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "twitter:description", content: "VibeCoder Solutions offers tailored business solutions, including websites, bots, and databases." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c9036958-68fa-429f-80ea-0bb958e477e1/id-preview-43b6844a--0f2971b8-a595-48ba-8ddf-e30a497ae0b8.lovable.app-1784611912632.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c9036958-68fa-429f-80ea-0bb958e477e1/id-preview-43b6844a--0f2971b8-a595-48ba-8ddf-e30a497ae0b8.lovable.app-1784611912632.png" },
     ],
     links: [
       {
@@ -103,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
