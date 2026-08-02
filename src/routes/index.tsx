@@ -27,9 +27,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import starterAsset from "../assets/package-starter.png.asset.json";
-import advancedAsset from "../assets/package-advanced.png.asset.json";
-import maximumAsset from "../assets/package-maximum.png.asset.json";
+import starterImage from "../assets/package-starter.jpg";
+import advancedImage from "../assets/package-advanced.jpg";
+import maximumImage from "../assets/package-maximum.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -68,7 +68,7 @@ const packages = [
     title: "Сайт приёма заявок",
     description:
       "Быстрый старт онлайн-присутствия: лендинг с формой обратной связи для сбора заявок и общения с клиентами.",
-    image: starterAsset.url,
+    image: starterImage,
     solutions: ["Лендинг", "Форма заявок", "Обратная связь"],
   },
   {
@@ -76,7 +76,7 @@ const packages = [
     title: "Бот + сайт + база данных",
     description:
       "Автоматизация коммуникаций: чат-бот для общения, сайт и база данных для хранения клиентской информации.",
-    image: advancedAsset.url,
+    image: advancedImage,
     solutions: ["Чат-бот", "Сайт", "База данных"],
   },
   {
@@ -84,7 +84,7 @@ const packages = [
     title: "Решение под ключ",
     description:
       "Полная цифровизация бизнеса: боты, сайт, база данных и бизнес-метрики. В подарок — ИИ-ассистент.",
-    image: maximumAsset.url,
+    image: maximumImage,
     solutions: ["Боты", "Сайт", "База данных", "Бизнес-метрики"],
     gift: "1 ИИ ассистент",
   },
