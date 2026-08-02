@@ -33,6 +33,33 @@ import maximumAsset from "../assets/package-maximum.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Аналитика для бизнеса" },
+      {
+        name: "description",
+        content:
+          "Готовые цифровые решения для бизнеса: сайты, чат-боты, базы данных и ИИ-ассистенты. Быстрый запуск, понятный продукт и поддержка.",
+      },
+      { property: "og:title", content: "Аналитика для бизнеса" },
+      {
+        property: "og:description",
+        content:
+          "Готовые цифровые решения для бизнеса: сайты, чат-боты, базы данных и ИИ-ассистенты. Быстрый запуск, понятный продукт и поддержка.",
+      },
+      { property: "og:type", content: "website" },
+      {
+        property: "og:url",
+        content: "https://firstprojinskycoder.lovable.app/",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://firstprojinskycoder.lovable.app/",
+      },
+    ],
+  }),
 });
 
 const packages = [
